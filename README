@@ -3,7 +3,7 @@
 ~~ The Library of HashBabel
 
 ~~ Description of the functionality
-
+_______________________________________________________________________________
 The hashmap structure and two other structures were used in the realization
 of the project:
     ->  A book-type structure that contains features such as:
@@ -11,7 +11,9 @@ of the project:
         made and completed, a hashtable-type structure that includes
         all definitions contained in the book (key-value pairs).
 
-    ->  A user-type structure containing details such as: score, what book and 		the number of days for which he borrowed it, but also whether it is 	banned or not.
+    ->  A user-type structure containing details such as: score, what book and
+	the number of days for which he borrowed it, but also whether it is
+	banned or not.
 
 All library, book or user specific commands use hashmap functionalities.
 
@@ -19,45 +21,74 @@ VERIFY_LOAD_FACTOR function : Check the degree of filling of a hashtable.
          If the factor exceeds the value of 1, the operation of is performed
          resizing. They were considered special cases for the library,
          book and user.
-
+_______________________________________________________________________________
 The library is a hashtable in which the value of an element represents a
 book structure.
 Commands for the library:
     ->  ADD_BOOK : Add a new book to the library. A book structure is created
-         The definitions are introduced in the new book. The load factor is 		 checked and the hashtable is resized if necessary.
+         The definitions are introduced in the new book. The load factor is
+	 checked and the hashtable is resized if necessary.
 
-    ->  GET_BOOK : If there is a book with the desired name in the library, its 	  details are displayed: name, rating and number of loans completed.
+    ->  GET_BOOK : If there is a book with the desired name in the library, its 	  
+	  details are displayed: name, rating and number of loans completed.
 
-    ->  REMOVE_BOOK : The book with the given name is deleted from the library. 	  If not exists, a specific message will be displayed.
-    
-The book represents a classic hashtable, in which the value of an element represents a key-value pair.
+    ->  REMOVE_BOOK : The book with the given name is deleted from the library. 	  
+	  If not exists, a specific message will be displayed.
+
+_______________________________________________________________________________
+The book represents a classic hashtable, in which the value of an element
+represents a key-value pair.
 Commands for the book:
-    ->  ADD_DEF : Add a new definition in the mentioned book. If the book 	  	  exists in the library, a new key-value pair is added to the book's 	          hashtable. Resize the hashtable if necessary.
+    ->  ADD_DEF : Add a new definition in the mentioned book. If the book 	  	  
+	  exists in the library, a new key-value pair is added to the book's 	          
+	  hashtable. Resize the hashtable if necessary.
 
-    ->  GET_DEF : It displays the value of the definition corresponding to the 	  	  key in the book specified. If the respective book is not in the           	  library, a specific message will be displayed.
+    ->  GET_DEF : It displays the value of the definition corresponding to the 	  	  
+	  key in the book specified. If the respective book is not in the           	  
+	  library, a specific message will be displayed.
 
     ->  REMOVE_DEF : The desired definition is deleted from a certain book.
          If the entry with the indicated key exists in the library, it is found
          and the key-value pair is deleted from the hashtable.
 
-The community represents a hashtable in which the value of an element is an user-type structure.
+_______________________________________________________________________________
+The community represents a hashtable in which the value of an element is an
+user-type structure.
 Commands for the community:
-    ->  ADD_USER : A new user is added to the system. If the user was not 	  	  banned, a new user structure is created and added to the hashtable 	  	  that represents the community. The hashtable is resized if needed.
+    ->  ADD_USER : A new user is added to the system. If the user was not 	  	  
+	  banned, a new user structure is created and added to the hashtable 	  	  
+	  that represents the community. The hashtable is resized if needed.
 
-    ->  BORROW : Assigns a certain book to a user. If the user is not banned 	  	 and has not already borrowed a book, the mentioned book is assigned 	         to him, and the book is marked as unavailable.
+    ->  BORROW : Assigns a certain book to a user. If the user is not banned 	  	 
+	  and has not already borrowed a book, the mentioned book is assigned 	         
+	  to him, and the book is marked as unavailable.
     
-    ->  RETURN : The user returns a book. It specifies how many days have 	  	  passed since the loan and offers a rating for the book. The book is 	  	  marked as available and its details are updated. Depending on the 	       	  number of days after the book was returned, the user can add or 	          subtract points. If the score becomes negative, the user is banned.
+    ->  RETURN : The user returns a book. It specifies how many days have 	  	  
+	  passed since the loan and offers a rating for the book. The book is 	  	  
+	  marked as available and its details are updated. Depending on the 	       	  
+	  number of days after the book was returned, the user can add or 	          
+	  subtract points. If the score becomes negative, the user is banned.
 
-    ->  LOST : The user loses a card. The book is permanently deleted from the 	          library, and the user is deducted 50 points. If the score becomes 	          negative, the user is banned.
+    ->  LOST : The user loses a card. The book is permanently deleted from the 	          
+	  library, and the user is deducted 50 points. If the score becomes 	          
+	  negative, the user is banned.
 
+_______________________________________________________________________________
 EXIT commands:
-    ->  EXIT_LIBRARY : Frees the memory occupied by the entire library. The 	          memory occupied by each book is freed, then the memory occupied by          the lists, and finally, the library is freed.
+    ->  EXIT_LIBRARY : Frees the memory occupied by the entire library. The 	          
+	  memory occupied by each book is freed, then the memory occupied by          
+	  the lists, and finally, the library is freed.
 
-    ->  EXIT_COMMUNITY : Frees the memory used by the hashtable represented by 	          the user community.
+    ->  EXIT_COMMUNITY : Frees the memory used by the hashtable represented by 	          
+	  the user community.
 
 TOP_BOOKS command:
-    ->  Makes a ranking of the books according to the rating. The cards are 	displayed in descending order by rating, and in case of a equality, they are sorted by to the number of reviews and then lexicographically according to the name of the book.
+    ->  Makes a ranking of the books according to the rating. The cards are 	
+	displayed in descending order by rating, and in case of a equality, 
+	they are sorted by to the number of reviews and then lexicographically
+	according to the name of the book.
 
 TOP_USERS command:
     ->  Performs a ranking of users according to the score. Users are displayed
-in descending order by score, and in case of equality, lexicographically by name.
+	in descending order by score, and in case of equality, lexicographically
+	by name.
